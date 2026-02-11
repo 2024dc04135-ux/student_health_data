@@ -16,8 +16,8 @@ if uploaded_file:
         ["Logistic Regression", "Decision Tree", "KNN", "Naive Bayes", "Random Forest", "XGBoost"]
     )
     
-    # Load model using pickle
-    model_filename = f"model/{model_choice.replace(' ', '_').lower()}.pkl"
+    # Load model directly from repo root (no 'model/' folder)
+    model_filename = f"{model_choice.replace(' ', '_').lower()}.pkl"
     with open(model_filename, "rb") as f:
         model = pickle.load(f)
     
@@ -25,7 +25,7 @@ if uploaded_file:
     data = data.drop(columns=["Student_ID"], errors="ignore")
     data = data.dropna(axis=1, how="all")
     
-    # Separate features and target
+    # Separate features and target if present
     if "Health_Risk_Level" in data.columns:
         X = data.drop("Health_Risk_Level", axis=1)
         y = data["Health_Risk_Level"]
