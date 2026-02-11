@@ -4,7 +4,7 @@ import pickle
 
 st.title("Student Health Risk Prediction")
 
-uploaded_file = st.file_uploader("Upload student health data CSV", type="csv")
+uploaded_file = st.file_uploader("student_health_data.csv", type="csv")
 
 if uploaded_file:
     data = pd.read_csv(uploaded_file)
