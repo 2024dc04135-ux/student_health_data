@@ -16,11 +16,10 @@ if uploaded_file:
         ["Logistic Regression", "Decision Tree", "KNN", "Naive Bayes", "Random Forest", "XGBoost"]
     )
     
-    
+    # Load model using pickle
     model_filename = f"model/{model_choice.replace(' ', '_').lower()}.pkl"
-	with open(model_filename, "rb") as f:
-   		 model = pickle.load(f)
-
+    with open(model_filename, "rb") as f:
+        model = pickle.load(f)
     
     # Drop ID and empty columns
     data = data.drop(columns=["Student_ID"], errors="ignore")
