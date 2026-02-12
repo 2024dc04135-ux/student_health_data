@@ -1,7 +1,0 @@
-pickle
-streamlit
-scikit-learn
-numpy
-pandas
-xgboost
-sklearn
