@@ -38,5 +38,11 @@ if uploaded_file:
     
     # Make predictions
     y_pred = model.predict(X)
+    # Define mapping (must match how LabelEncoder was fit during training)
+    label_map = {0: "Low", 1: "Moderate", 2: "High"}
+
+# Convert numeric predictions to labels
+    y_pred_labels = [label_map.get(val, val) for val in y_pred]
+
+    st.write("Predictions (first 10):", y_pred_labels[:10])
     
-    st.write("Predictions (first 10):", y_pred[:10])
